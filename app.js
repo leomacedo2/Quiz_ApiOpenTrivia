@@ -5,15 +5,19 @@ let acertos = 0;
 async function comecarQuiz() {
     let qtd = document.getElementById("qtd_perguntas").value;
     let categoriaEscolhida = document.getElementById("categoria").value;
+    let dificuldadeEscolhida = document.getElementById("dificuldade").value; // Pega a dificuldade
     
     document.getElementById("tela-inicial").style.display = "none";
     document.getElementById("tela-carregando").style.display = "flex";
 
     let url = `https://opentdb.com/api.php?amount=${qtd}&type=multiple`;
-
-
+    
     if (categoriaEscolhida !== "") {
         url = url + `&category=${categoriaEscolhida}`;
+    }
+
+    if (dificuldadeEscolhida !== "") {
+        url = url + `&difficulty=${dificuldadeEscolhida}`;
     }
 
     let resposta = await fetch(url);
