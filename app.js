@@ -5,12 +5,12 @@ let acertos = 0;
 async function comecarQuiz() {
     let qtd = document.getElementById("qtd_perguntas").value;
     let categoriaEscolhida = document.getElementById("categoria").value;
-    let dificuldadeEscolhida = document.getElementById("dificuldade").value; // Pega a dificuldade
+    let dificuldadeEscolhida = document.getElementById("dificuldade").value;
     
     document.getElementById("tela-inicial").style.display = "none";
     document.getElementById("tela-carregando").style.display = "flex";
 
-    let url = `https://opentdb.com/api.php?amount=${qtd}&type=multiple`;
+    let url = `https://opentdb.com/api.php?amount=${qtd}`;
     
     if (categoriaEscolhida !== "") {
         url = url + `&category=${categoriaEscolhida}`;
@@ -23,6 +23,13 @@ async function comecarQuiz() {
     let resposta = await fetch(url);
     let dados = await resposta.json();
     
+    if (dados.results.length === 0) {
+        alert("Poxa! Não temos perguntas suficientes para essa combinação. Tente diminuir a quantidade ou mudar a dificuldade.");
+        document.getElementById("tela-carregando").style.display = "none";
+        document.getElementById("tela-inicial").style.display = "flex";
+        return; 
+    }
+
     listaPerguntas = await traduzirPerguntas(dados.results);
     
     indiceAtual = 0;
@@ -38,7 +45,14 @@ async function apiTraduzir(texto) {
     let resposta = await fetch(`https://api.mymemory.translated.net/get?q=${encodeURIComponent(texto)}&langpair=en|pt-br`);
     let dados = await resposta.json();
     
-    return dados.responseData.translatedText;
+    let textoTraduzido = dados.responseData.translatedText;
+
+
+    if (textoTraduzido === null || textoTraduzido.includes("ApiMyMemory Falhou")) {
+        return texto; 
+    }
+    
+    return textoTraduzido;
 }
 
 async function traduzirPerguntas(arrayIngles) {
