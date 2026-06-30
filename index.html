@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Quiz Trivia</title>
+  </head>
+  <body>
+    <div class="caixa-quiz">
+      <h1>Quiz Trivia</h1>
+
+      <div id="tela-inicial">
+        <label for="categoria">Escolha um tema:</label>
+
+        <select id="categoria">
+          <option value="">Qualquer Tema (Misturado)</option>
+          <option value="9">Conhecimentos Gerais</option>
+          <option value="31">Animes e Mangás</option>
+          <option value="11">Filmes</option>
+          <option value="15">Video Games</option>
+          <option value="17">Ciência e Natureza</option>
+          <option value="21">Esportes</option>
+          <option value="22">Geografia</option>
+          <option value="23">História</option>
+        </select>
+
+        <label for="qtd_perguntas"
+          >Quantas perguntas você quer responder?</label
+        >
+        <input type="number" id="qtd_perguntas" value="5" min="1" max="20" />
+        <div class="botao">
+          <button onclick="comecarQuiz()">Começar Jogo</button>
+        </div>
+      </div>
+
+      <div id="tela-carregando" style="display: none">
+        <h2>Carregando e traduzindo as perguntas...</h2>
+        <p>Isso pode levar alguns segundos.</p>
+      </div>
+
+      <div id="tela-quiz" style="display: none">
+        <p id="contador-perguntas"></p>
+        <h2 id="pergunta"></h2>
+
+        <div id="alternativas" class="botoes-alternativas"></div>
+
+        <div id="bloco-proxima" style="display: none; margin-top: 20px">
+          <button onclick="irParaProxima()" style="background-color: #0066cc">
+            Próxima Pergunta
+          </button>
+        </div>
+      </div>
+
+      <div id="tela-resultado" style="display: none">
+        <h2>Fim de Jogo!</h2>
+        <p id="nota-final"></p>
+        <div class="botao">
+          <button onclick="reiniciarQuiz()">Jogar Novamente</button>
+        </div>
+      </div>
+    </div>
+    <script src="app.js"></script>
+  </body>
+</html>

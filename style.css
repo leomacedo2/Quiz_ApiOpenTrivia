@@ -1,0 +1,150 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    background: linear-gradient(135deg, #74ebd5 0%, #9face6 100%);
+    color: #333;
+}
+
+.caixa-quiz {
+    width: 100%;
+    max-width: 550px;
+    padding: 40px 30px;
+    background-color: white;
+    border-radius: 15px;
+    box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.15);
+    text-align: center;
+}
+
+h1 {
+    margin-bottom: 25px;
+    color: #2c3e50;
+    font-size: 28px;
+}
+
+h2 {
+    margin-bottom: 20px;
+    font-size: 20px;
+    color: #34495e;
+    line-height: 1.4;
+}
+
+#contador-perguntas {
+    font-size: 14px;
+    color: #7f8c8d;
+    margin-bottom: 10px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+label {
+    font-weight: 600;
+    margin-bottom: 10px;
+    display: block;
+    color: #2c3e50;
+}
+
+input, select {
+    width: 100%;
+    max-width: 280px;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    outline: none;
+    padding: 12px;
+    font-size: 16px;
+    text-align: center;
+    margin: 0 auto 20px auto;
+    display: block;
+    transition: border-color 0.3s;
+}
+
+input:focus, select:focus {
+    border-color: #3498db;
+}
+
+.botao {
+    margin-top: 20px;
+}
+
+button {
+    font-size: 16px;
+    font-weight: 600;
+    background-color: #3498db;
+    color: white;
+    cursor: pointer;
+    padding: 12px 24px;
+    border: none;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    box-shadow: 0px 4px 15px rgba(52, 152, 219, 0.3);
+}
+
+button:hover {
+    background-color: #2980b9;
+    transform: translateY(-2px);
+}
+
+#tela-inicial, #tela-carregando, #tela-quiz, #tela-resultado {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.botoes-alternativas {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-top: 25px;
+}
+
+.botoes-alternativas button {
+    background-color: #f8f9fa;
+    color: #2c3e50;
+    border: 2px solid #e9ecef;
+    box-shadow: none;
+    padding: 14px;
+}
+
+.botoes-alternativas button:hover {
+    background-color: #e9ecef;
+    border-color: #dee2e6;
+    transform: none; 
+}
+
+.botoes-alternativas button:disabled {
+    opacity: 1;
+    color: white;
+}
+
+#bloco-proxima {
+    width: 100%;
+}
+
+#bloco-proxima button {
+    width: 100%;
+    background-color: #2ecc71;
+    box-shadow: 0px 4px 15px rgba(46, 204, 113, 0.3);
+    margin-top: 25px;
+    padding: 15px;
+}
+
+#bloco-proxima button:hover {
+    background-color: #27ae60;
+}
+
+#nota-final {
+    font-size: 22px;
+    color: #2c3e50;
+    margin: 20px 0;
+}
