@@ -143,6 +143,13 @@ function mostrarResultado() {
     document.getElementById("tela-quiz").style.display = "none";
     document.getElementById("tela-resultado").style.display = "flex";
     document.getElementById("nota-final").innerHTML = `Você acertou <strong>${acertos}</strong> de ${listaPerguntas.length} questões!`;
+    if (acertos === 0) {
+        document.getElementById("comentario").innerHTML = "Nenhuma questão? Sério? Tá tão dificil assim?"
+    } else if (acertos == listaPerguntas.length) {
+        document.getElementById("comentario").innerHTML = "Parabéns. Você acertou todas as questões!"
+    } else {
+        document.getElementById("comentario").innerHTML = "Quem sabe você acerta mais na próxima vez?"
+    }
 }
 
 function reiniciarQuiz() {
